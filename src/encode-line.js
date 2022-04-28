@@ -22,13 +22,11 @@ function encodeLine(str) {
     } else {
       if (count == 1) {
         res += cur;
-        cur = arr[i];
-        count = 1;
       } else {
         res += `${count}${cur}`;
-        cur = arr[i];
-        count = 1;
       }
+      cur = arr[i];
+      count = 1;
     }
   }
   return res;
