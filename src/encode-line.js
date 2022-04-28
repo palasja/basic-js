@@ -1,4 +1,4 @@
-const { NotImplementedError } = require('../extensions/index.js');
+const { NotImplementedError } = require("../extensions/index.js");
 
 /**
  * Given a string, return its encoding version.
@@ -10,26 +10,30 @@ const { NotImplementedError } = require('../extensions/index.js');
  * For aabbbc should return 2a3bc
  *
  */
-function encodeLine( str ) {
-  let arr = str.split('');
+function encodeLine(str) {
+  let arr = str.split("");
   let res = "";
   let cur = arr[0];
   let count = 1;
-  for(let i = 1; i < arr.length; i++){
-    if(arr[i] == cur){
+  for (let i = 1; i < arr.length + 1; i++) {
+    if (arr[i] == cur) {
       count++;
       continue;
     } else {
-      if(count == 1) {
-        res += cur; 
+      if (count == 1) {
+        res += cur;
+        cur = arr[i];
+        count = 1;
       } else {
         res += `${count}${cur}`;
-
+        cur = arr[i];
+        count = 1;
       }
     }
   }
+  return res;
 }
 
 module.exports = {
-  encodeLine
+  encodeLine,
 };
