@@ -20,7 +20,12 @@ function getSeason(date) {
   if (arguments.length == 0) return "Unable to determine the time of year!";
 
   if (!(date instanceof Date)) throw new Error("Invalid date!");
-  if (!date.hasOwnProperty("setMonth")) throw new Error("Invalid date!");
+  // try {
+  //   a.setHours(2);
+  // } catch {
+  //   throw new Error("Invalid date!");
+  // }
+  if (date.hasOwnProperty("toString")) throw new Error("Invalid date!");
   const month = date.getMonth();
   let season = "";
   if (month < 2 || month == 11) {
